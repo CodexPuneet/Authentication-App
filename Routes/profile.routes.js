@@ -17,7 +17,7 @@ profileRouter.get("/getProfile",authenticate, async (req, res) => {
     }
   });
 
-  profileRouter.patch("/editProfile", async (req, res) => {
+  profileRouter.patch("/editProfile",authenticate, async (req, res) => {
     let userId = req.body.userId;
     let payload = req.body;
     try {
