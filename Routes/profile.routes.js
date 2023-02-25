@@ -1,11 +1,13 @@
-const express = require('express')
+const express = require('express');
+const { authenticate } = require('../Middleware/autenticate.user');
 const profileRouter = express.Router()
 const {UserModel}= require('../Model/user.model')
 
 
 
-profileRouter.get("/getProfile", async (req, res) => {
-    let userId = req.body.userId;
+
+profileRouter.get("/getProfile",authenticate, async (req, res) => {
+    let userId = req.body.userID;
     try {
       const user = await UserModel.findOne({ _id: userId });
       res.send(user);

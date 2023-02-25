@@ -2,7 +2,7 @@ const express = require("express");
 const {connection}=require('./Config/db')
 const {userRouter}= require('./Routes/user.routes')
 const {profileRouter}=require('./Routes/profile.routes')
-const {authenticate}= require('./Middleware/autenticate.user')
+// const {authenticate}= require('./Middleware/autenticate.user')
 
 
 const app = express();
@@ -13,7 +13,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/user', userRouter)
-app.use(authenticate)
+// app.use(authenticate)
 app.use('/', profileRouter)
 
 
